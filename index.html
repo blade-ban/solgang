@@ -305,7 +305,8 @@
 <script>
   // ★★★ 배포 전 반드시 아래 URL을 본인의 Google Apps Script 웹앱 URL로 교체하세요 ★★★
   // (Apps Script 편집기 > 배포 > 웹 앱으로 배포 > 실행 URL을 복사해서 넣기)
-  const GAS_URL = "https://script.google.com/macros/s/AKfycbwjC0FUPpQnWgg5fnXeB5UNt9pFsrzRsK5Q7O6HwU7Cptu38ZuZT6m4qjxMNUefl36a/exec";
+  // ▼▼▼ [새 학교 설정 ①] 새 학교 시트에서 배포한 웹 앱 주소(…/exec로 끝남)를 따옴표 안에 넣으세요. 비워 두면 샘플 데이터로 실행됩니다. ▼▼▼
+  const GAS_URL = "";
 
   // GAS_URL이 실제로 설정되었는지는 "http로 시작하는가"로 판단합니다.
   // (주의) 아래처럼 GAS_URL 문자열 자체를 다른 곳에 그대로 복사해서 비교하는 방식은 쓰지 마세요 —
@@ -335,13 +336,14 @@
     // ===== 학교 지도 미니맵 (선택 기능) =====
     // "🗺 지도" 버튼을 누르면 아래 이미지를 띄우고, 그 위에 찾은/못 찾은 한자와 내 현재 위치를 표시합니다.
     // MAP_IMAGE_URL을 비워두면(기본값) 지도 버튼 자체가 화면에 나타나지 않습니다.
-    MAP_IMAGE_URL: 'school_map.png',       // 예: 'school_map.png' (이 index.html과 같은 폴더에 올린 학교 항공사진/안내도 파일명 또는 URL)
+    // ▼▼▼ [새 학교 설정 ②] 새 학교 지도 이미지를 이 파일과 같은 폴더에 school_map.png로 올리고, 아래 MAP_CALIBRATION 값을 지도_좌표_보정_도구.html로 구해 바꾼 뒤 '' 를 'school_map.png' 로 바꾸세요. 비워 두면 지도 버튼이 숨겨집니다. ▼▼▼
+    MAP_IMAGE_URL: '',       // 예: 'school_map.png' (이 index.html과 같은 폴더에 올린 학교 항공사진/안내도 파일명 또는 URL)
     // 이미지 위에서 서로 다른(대각선 방향으로 멀리 떨어진) 두 지점을 고르세요. 그 두 지점의 실제
     // 위도·경도(한자 좌표를 구한 것과 같은 방법)와, 이미지 안에서 그 지점이 가로·세로로 몇 %(0~100)
     // 위치에 있는지(이미지를 열어 눈대중으로 가늠)를 아래에 입력하면, 나머지 한자 위치는 자동 계산됩니다.
-     MAP_CALIBRATION: {
-      p1: { lat: 36.617473, lng: 127.308882, xPct: 1.8, yPct: 75.5 },
-      p2: { lat: 36.618182, lng: 127.310278, xPct: 93.3, yPct: 22.4 }
+     MAP_CALIBRATION: {   // ← 아래 0 값들은 자리 표시입니다. 보정 도구가 만들어 준 값으로 통째로 바꾸세요.
+      p1: { lat: 36.617489, lng: 127.308907, xPct: 3.2, yPct: 74.5 },
+      p2: { lat: 36.618174, lng: 127.31027, xPct: 93.5, yPct: 22.4 }
     },
   };
 
